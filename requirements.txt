@@ -1,4 +1,5 @@
 Flask
+streamlit
 scikit-learn
 pandas == 1.3.2
 numpy
