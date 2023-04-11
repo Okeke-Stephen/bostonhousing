@@ -4,7 +4,4 @@ scikit-learn
 pandas 
 numpy
 matplotlib
-<<<<<<< HEAD
 pickle
-=======
->>>>>>> d302fe0332bbd3a62ff436da2677335c6221bdb5
