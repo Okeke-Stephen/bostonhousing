@@ -1,40 +1,66 @@
-import json
 import pickle
-
-from flask import Flask,request,app,jsonify,url_for,render_template
-import numpy as np
-import pandas as pd
-
-app=Flask(__name__)
-## Load the model
-regmodel=pickle.load(open('gbrmodel.pkl','rb'))
-#scalar=pickle.load(open('scaling.pkl','rb'))
-@app.route('/')
-def home():
-    return render_template('home.html')
-
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
-    data=request.json['data']
-    print(data)
-    print(np.array(list(data.values())).reshape(1,-1))
-    #new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
-    new_data = np.array(list(data.values())).reshape(1,-1)
-    output=regmodel.predict(new_data)
-    print(output[0])
-    return jsonify(output[0])
-
-@app.route('/predict',methods=['POST'])
-def predict():
-    data=[float(x) for x in request.form.values()]
-    #final_input=scalar.transform(np.array(data).reshape(1,-1))
-    final_input=np.array(data).reshape(1,-1)
-    print(final_input)
-    output=regmodel.predict(final_input)[0]
-    return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
+import streamlit as st
+from streamlit_option_menu import option_menu
 
 
+# loading the saved models
+house_model = pickle.load(open('housepredict_model.sav', 'rb'))
 
-if __name__=="__main__":
-    app.run(debug=True)
-   
+# page title
+st.title('Boston House Predictive Framework')
+    
+    
+# getting the input data from the user
+col1, col2, col3 = st.columns(3)
+    
+with col1:
+  CRIM = st.text_input('Per Capita Crime Rate')
+        
+with col2:
+  ZN = st.text_input('Land Zone')
+    
+with col3:
+  INDUS = st.text_input('Non-Retail Business Acres')
+    
+with col1:
+  CHAS = st.text_input('Charles River Variable')
+    
+with col2:
+  NOX = st.text_input('Nitric Oxide Concentration')
+    
+with col3:
+  RM = st.text_input('Average number of Rooms')
+    
+with col1:
+  AGE = st.text_input('Proportion of owner-occupied units')
+
+with col2:
+  DIS = st.text_input('Distances to Boston Employment Centres')
+
+with col3:
+  RAD = st.text_input(' Index Accessibility to Highways')
+
+with col1:
+  TAX = st.text_input('Property Tax Rate')
+
+with col2:
+  PTRATIO = st.text_input('Student Teacher Ration')
+
+with col3:
+  B = st.text_input('Prop African American descent')
+
+with col1:
+  LSTAT = st.text_input('Percentage of Lower Status of the Population')
+
+with col2:
+  DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+
+    
+    
+# code for Prediction
+house_pred = ''
+# creating a button for Prediction
+
+if st.button('House Price Prediction Result'):
+    House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])      
+st.write(house_pred)
