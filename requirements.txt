@@ -1,7 +1,2 @@
-Flask
 streamlit
-scikit-learn
-pandas 
-numpy
-matplotlib
-pickle
+streamlit-option-menu
