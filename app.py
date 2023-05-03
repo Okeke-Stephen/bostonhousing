@@ -62,4 +62,11 @@ with col2:
 house_pred = ''
 # creating a button for Prediction
 
-st.button('Prediction:' House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]]))
+st.button('Prediction:')
+House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
+
+if st.button("Predict"):
+    output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
+    output = '$' + str(output)
+    st.success('The insurance estimated charge is: {}'.format(output))
+
