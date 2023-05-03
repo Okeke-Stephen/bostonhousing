@@ -56,15 +56,7 @@ with col1:
 with col2:
   DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
 
-    
-    
-# code for Prediction
-house_pred = ''
 # creating a button for Prediction
-
-st.button('Prediction:')
-House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
-
 if st.button("Predict"):
     output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
     output = '$' + str(output)
