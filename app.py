@@ -61,6 +61,6 @@ with col2:
 if st.button("Predict"):
     output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
     output = '$' + str(output)
-    output = re.sub("[[]", "", output)
+    output = re.sub("[[]]", "", output)
     st.success('The house price estimate is: {}'.format(output))
 
