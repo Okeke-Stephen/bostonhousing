@@ -58,7 +58,7 @@ with col2:
 
 # creating a button for Prediction
 if st.button("Predict"):
-    output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
+    output = house_model.predict([CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT])
     output = '$' + str(output)
-    st.success('The insurance estimated charge is: {}'.format(output))
+    st.success('The house price estimate is: {}'.format(output))
 
