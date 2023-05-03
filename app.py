@@ -64,4 +64,4 @@ house_pred = ''
 
 if st.button('House Price Prediction Result'):
     House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])      
-st.success(house_pred)
+st.success(House_prediction )
