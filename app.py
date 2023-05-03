@@ -62,6 +62,4 @@ with col2:
 house_pred = ''
 # creating a button for Prediction
 
-if st.button('House Price Prediction Result'):
-    House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])      
-st.success(House_prediction )
+st.button('Prediction': House_prediction = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]]))
