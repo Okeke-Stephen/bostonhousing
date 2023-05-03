@@ -1,6 +1,5 @@
 import pickle
 import sklearn
-import re
 import streamlit as st
 from streamlit_option_menu import option_menu
 
@@ -60,7 +59,6 @@ with col2:
 # creating a button for Prediction
 if st.button("Predict"):
     output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
-    output = '$' + str(output)
-    output = re.sub("[]", "", output)
+    output = '$' + var(output)
     st.success('The house price estimate is: {}'.format(output))
 
