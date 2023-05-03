@@ -8,7 +8,7 @@ from streamlit_option_menu import option_menu
 house_model = pickle.load(open('housepredict_model.sav', 'rb'))
 
 # page title
-st.title('Boston House Predictive Framework')
+st.title('House Price Predictive Framework')
     
     
 # getting the input data from the user
