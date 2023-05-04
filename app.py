@@ -36,7 +36,7 @@ with col1:
   AGE = st.text_input('Proportion of owner-occupied units')
 
 with col2:
-  DIS = st.text_input('Distances to Boston Employment Centres')
+  DIS = st.text_input('Boston Employment Centres')
 
 with col3:
   RAD = st.text_input(' Index Accessibility to Highways')
