@@ -1,41 +1,63 @@
+import pickle
+import sklearn
 import streamlit as st
-import pandas as pd
-import numpy as np
-from prediction import predict
+from streamlit_option_menu import option_menu
+
 
 # loading the saved models
-house_model = pickle.load(open('insurance_model.sav.pkl', 'rb'))
+house_model = pickle.load(open('housepredict_model.sav', 'rb'))
 
-st.title('Insurance Charges Prediction')
-st.markdown('Enter Values to Predict your Insurance Charge')
-
-st.header("Insurance Charges Predictive System")
-col1, col2 = st.columns(2)
-
-with col1:
-	age = form.number_input('Age', min_value=1, max_value=100, value=25)
-
-with col2:
-	sex = form.radio('Sex', ['Male', 'Female'])
-
-with col1:
-	bmi = form.number_input('BMI', min_value=10.0, max_value=50.0, value=20.0)
-
-with col2:
-	children = form.slider('Children', min_value=0, max_value=10, value=0)
-
-with col1:
-	region_list = ['Southwest', 'Northwest', 'Northeast', 'Southeast']
-	region = form.selectbox('Region', region_list)
-
-with col2:
-	if form.checkbox('Smoker'):
-    		smoker = 'yes'
-	else:
-    		smoker = 'no'
+# page title
+st.title('House Price Predictive Framework')
     
-st.text('')
-if st.button("Predict Charge"):
-    result = predict(
-        np.array([[age, sex, bmi, children, region, smoker]]))
-    st.text('The house price estimate is:' + '$' + result[0])
+    
+# getting the input data from the user
+col1, col2, col3 = st.columns(3)
+    
+with col1:
+  CRIM = st.text_input('Per Capita Crime Rate')
+        
+with col2:
+  ZN = st.text_input('Land Zone')
+    
+with col3:
+  INDUS = st.text_input('Non-Retail Business Acres')
+    
+with col1:
+  CHAS = st.text_input('Charles River Variable')
+    
+with col2:
+  NOX = st.text_input('Nitric Oxide Concentration')
+    
+with col3:
+  RM = st.text_input('Average number of Rooms')
+    
+with col1:
+  AGE = st.text_input('Proportion of owner-occupied units')
+
+with col2:
+  DIS = st.text_input('Distances to Boston Employment Centres')
+
+with col3:
+  RAD = st.text_input(' Index Accessibility to Highways')
+
+with col1:
+  TAX = st.text_input('Property Tax Rate')
+
+with col2:
+  PTRATIO = st.text_input('Student Teacher Ration')
+
+with col3:
+  B = st.text_input('Prop African American descent')
+
+with col1:
+  LSTAT = st.text_input('Percentage of Lower Status of the Population')
+
+with col2:
+  DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+
+# creating a button for Prediction
+if st.button("Predict"):
+    output = house_model.predict([[CRIM, ZN, INDUS, CHAS, NOX, RM, AGE, DIS, RAD, TAX, PTRATIO, B, LSTAT]])
+    output = '$' + str(output)
+    st.success('The house price estimate is: {}'.format(output))
