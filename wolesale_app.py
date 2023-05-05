@@ -37,6 +37,6 @@ with col1:
 
 # creating a button for Prediction
 if st.button("Predict"):
-    output = house_model.predict([[Channel, Region, Fresh, Milk, Grocery, Frozen, Detergents_Pape]])
+    output = house_model.predict([[Channel, Region, Fresh, Milk, Grocery, Frozen, Detergents_Paper]])
     output = str(output)
     st.success('The total sale estimate is: {}'.format(output))
