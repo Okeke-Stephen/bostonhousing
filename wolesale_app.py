@@ -1,12 +1,12 @@
 import pickle
 import sklearn
-import numpy
+import joblib
 import streamlit as st
 from streamlit_option_menu import option_menu
 
 
 # loading the saved models
-house_model = pickle.load(open('wolesale.sav', 'rb'))
+house_model = joblib.load(open('wolesale.sav', 'rb'))
 
 # page title
 st.title('Wholesale Predictive Framework')
