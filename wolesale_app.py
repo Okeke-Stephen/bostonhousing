@@ -15,7 +15,7 @@ st.title('Wholesale Predictive Framework')
 col1, col2 = st.columns(2)
     
 with col1:
-  Channel = st.int('Channel of Purchase')
+  Channel = st.varcar('Channel of Purchase')
         
 with col2:
   Region = st.varcar('Region of Wharehouse')
