@@ -15,22 +15,22 @@ st.title('Wholesale Predictive Framework')
 col1, col2 = st.columns(2)
     
 with col1:
-  Channel = st.varcar('Channel of Purchase')
+  Channel = st.number_input('Channel of Purchase')
         
 with col2:
-  Region = st.varcar('Region of Wharehouse')
+  Region = st.number_input('Region of Wharehouse')
 
 with col1:
-  Fresh = st.varcar('Fresh Goods')
+  Fresh = st.number_input('Fresh Goods')
     
 with col2:
-  Milk = st.varcar('Milk Items')
+  Milk = st.number_input('Milk Items')
     
 with col1:
-  Grocery = st.varcar('Grocery Products')
+  Grocery = st.number_input('Grocery Products')
 
 with col2:
-  Frozen = st.varcar('Frozen Goods')
+  Frozen = st.number_input('Frozen Goods')
 
 with col1:
   Detergents_Paper = st.varcar('Detergents Products')
