@@ -15,25 +15,25 @@ st.title('Wholesale Predictive Framework')
 col1, col2 = st.columns(2)
     
 with col1:
-  Channel = st.text_input('Channel of Purchase')
+  Channel = st.int('Channel of Purchase')
         
 with col2:
-  Region = st.text_input('Region of Wharehouse')
+  Region = st.varcar('Region of Wharehouse')
 
 with col1:
-  Fresh = st.text_input('Fresh Goods')
+  Fresh = st.varcar('Fresh Goods')
     
 with col2:
-  Milk = st.text_input('Milk Items')
+  Milk = st.varcar('Milk Items')
     
 with col1:
-  Grocery = st.text_input('Grocery Products')
+  Grocery = st.varcar('Grocery Products')
 
 with col2:
-  Frozen = st.text_input('Frozen Goods')
+  Frozen = st.varcar('Frozen Goods')
 
 with col1:
-  Detergents_Paper = st.text_input('Detergents Products')
+  Detergents_Paper = st.varcar('Detergents Products')
 
 # creating a button for Prediction
 if st.button("Predict"):
