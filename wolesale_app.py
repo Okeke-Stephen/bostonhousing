@@ -33,7 +33,7 @@ with col2:
   Frozen = st.number_input('Frozen Goods')
 
 with col1:
-  Detergents_Paper = st.varcar('Detergents Products')
+  Detergents_Paper = st.number_input('Detergents Products')
 
 # creating a button for Prediction
 if st.button("Predict"):
